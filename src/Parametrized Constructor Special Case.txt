@@ -1,0 +1,29 @@
+
+Parameterized Constructor Special Case:
+
+
+In java every class has a default superclass Object class. 
+
+If the class has a parameterized constructor and there no no-args constructor then when the subclass extends the superclass the complier will throw an error.
+
+Ex:class Animal {
+    Animal(String name) {    // ✅ parameterized constructor
+        System.out.println("Animal: " + name);
+    }
+}
+
+class Dog extends Animal {
+    // ❌ no constructor defined
+}
+
+Throws an compile time error.
+
+
+class Dog extends Animal {
+    Dog() {
+        super("Buddy"); // ✅ calls the Animal(String name) constructor
+    }
+}
+
+This is the actual solution.
+We have to  call the superclass constructor using the super keyword.
